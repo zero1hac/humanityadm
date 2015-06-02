@@ -3,7 +3,9 @@ __author__ = 'zeroonehacker'
 from django.shortcuts import render
 from django.contrib import auth
 from django.core.context_processors import csrf
-
+from django.http import HttpResponse
+def index(request):
+	return HttpResponse("Hiii")
 def login(request):
     di = {}
     di.update(csrf(request))

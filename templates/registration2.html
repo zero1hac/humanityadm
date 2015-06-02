@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Admission Portal ( Banaras Hindu University ), Varanasi -India">
+    <meta name="keywords" content="course change portal,portal,iit bhu, itbhu,bhu, indian institute of technology bhu, iit varanasi,banaras hindu university" />
+
+    <meta name="author" content="">
+    <!--favicon-->
+    <link rel="icon" href="/static/images/iitbhu.ico">
+
+    <title>Change Pass | IIT (BHU), Varanasi</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <!-- <link href="/static/css/custom.css" rel="stylesheet"> -->
+
+  </head>
+<body>
+<h1>Registration Form</h1>{% if user.is_authenticated %}<p>LOL</p>{% endif %}
+
+
+    <form action="/register/form2/" method="POST" enctype="multipart/form-data" class="form-inline" role="form">{% csrf_token %}
+        <label for="image">Profile Image :</label>
+        <input type="image" name="image" required/><br>
+        <label for="signature">Signature Image :</label>
+        <input type="image" name="signature" required/><br>
+        <label for="ereceipt">E Receipt no. :</label>
+        <input type="text" name="ereceipt" required/><br>
+        <label for="dop">Date of Payment :</label>
+        <input type="date" name="dop" required/><br>
+        <label for="gate_status">Gate/NET Qualified :</label>
+        <select name="gate_status" required>
+            <option value="1">Yes</option>
+            <option value="2">No</option>
+        </select><br>
+        <label for="gate_exam">Nation :</label>
+        <select form="gate_exam" name="gate_exam">
+            <option value="GATE">GATE</option>
+            <option value="UGC-CSIR-NET">UGC-CSIR-NET</option>
+        </select>
+        <label for="gate_disc">Gate Discipline : </label>
+        <input type="text" name="gate_disc"/>
+        <label for="gate_regis">Gate Registration :</label>
+        <input type="text" name="gate_regis"/>
+        <label for="gate_rank">Gate Rank : </label>
+        <input type="text" name="gate_rank"/>
+        <label for="score_card">Gate Scorecard :</label>
+        <input type="image" name="score_card"/><br>
+        <label for="quali_degree">Qualifying Degree : </label>
+        <input type="text" name="quali_degree"/>
+        <label for="univ_name">University Name : </label>
+        <input type="text" name="univ_name"/>
+        <label for="year_passing">Passing Year : </label>
+        <input type="text" name="year_passing"/>
+        <label for="status_deg">Degree Status : </label>
+        <select for="status_deg" name="status_deg">
+            <option name="status_deg" value="RA">Result Awaited</option>
+            <option name="status_deg" value="RD">Redult Declared</option>
+        </select>
+        <label for="aggre_per">Aggregate Percentage : </label>
+        <input type="text" name="aggre_per"/>
+        <label for="stu_status">Student Status : </label>
+        <select name="stu_status">
+            <option value="FTR">Full Time Regular</option>
+            <option></option>
+            <option></option>
+        </select>
+        <label for="fin_status">Financial Status : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="disc_choice1">Discipline Choice 1 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="disc_choice2">Discipline Choice 2 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="disc_choice3">Discipline Choice 3 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="disc_choice4">Discipline Choice 4 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="disc_choice5">Discipline Choice 5 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="spec_choice1">Specialization Choice 1 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="spec_choice2">Specialization Choice 2 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="spec_choice3">Specialization Choice 3 : </label>
+        <select name="fin_status">
+            <option></option>
+            <option></option>
+        </select>
+        <label for="work_exp">Work Experience : </label>
+        <input name="work_exp" value="Y"/>Yes
+        <input name="work_exp" value="N"/>No
+        <label for="period_from">Period From : </label>
+         <input type="month" name="period_form_mon"/>
+         <label for="period_to">Period To : </label>
+        <label for="work_org">Work Organization : </label>
+        <label for="position">Position : </label>
+        <label for="pulica_status">Publication Status : </label>
+        <label for="publica">Publications : </label>
+        <label for="refree1_name">Referee 1 Name : </label>
+        <label for="refree1_email">Referee 1 Email :</label>
+        <label for="refree2_name">Referee 2 Name : </label>
+        <label for="refree2_email">Referee 2 Email :</label>
+    <input type="submit" name="submit" value="Submit"/> </form>
+<script type="text/javascript">
+        $(document).ready(function(){
+                        $("input#checker").bind("click",function(o){
+                                        if($("input#checker:checked").length){
+                                                $("#perma_addr").val($("#corres_addr").val());}
+                                                else{
+                                                    $("#corres_addr").val("");
+                                                    }
+                                                    });
+                                                    });
+
+</script>
+<a href="/register/change_password/">Forgot Password?</a>
+</body>
+
+</html>
