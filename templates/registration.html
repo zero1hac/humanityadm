@@ -1,92 +1,214 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Admission Portal ( Banaras Hindu University ), Varanasi -India">
-    <meta name="keywords" content="course change portal,portal,iit bhu, itbhu,bhu, indian institute of technology bhu, iit varanasi,banaras hindu university" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
     <meta name="author" content="">
-    <!--favicon-->
-    <link rel="icon" href="/static/images/iitbhu.ico">
+    <title>PhD Admissions Portal | IIT(BHU) Varanasi</title>
 
-    <title>Change Pass | IIT (BHU), Varanasi</title>
+    <!-- core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/responsive.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/static/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/static/css/starter-template.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/static/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    <script src="/static/js/html5shiv.js"></script>
+    <script src="/static/js/respond.min.js"></script>
     <![endif]-->
-    <!-- <link href="/static/css/custom.css" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
 
-  </head>
 <body>
-<h1>Registration Form</h1>{% if user.is_authenticated %}<p>LOL</p>{% endif %}
 
+    <header id="header">
 
-    <form action="/register/form/" method="POST" enctype="multipart/form-data" class="form-inline" role="form">{% csrf_token %}
-        <label for="full_name">Full Name :</label>
-        <input type="text" name="full_name" required/><br>
-        <label for="mother_name">Mother's Name :</label>
-        <input type="text" name="mother_name" required/><br>
-        <label for="father_name">Father's Name :</label>
-        <input type="text" name="father_name" required/><br>
-        <label for="dob">Date of Birth :</label>
-        <input type="date" name="dob" required/><br>
-        <label for="gender">Full Name :</label>
-        <select name="gender" required>
-            <option value="M">Male</option>
+       <div class="container">
+  <div class="row">
+      <div class="col-sm-3"><img src="/static/images/logo.jpg" style="height: 150px;width: 150px;left-margin: 70px" align="right" class="img-responsive"/></div>
+      <div class="col-sm-9"><img src="/static/images/emblem.jpg" style="height: 150px;width: auto;" align="left" class="img-responsive"/></div>
+  </div>
+      </div>
+<div>
+
+</div>
+    </header><!--/header-->
+    <h2 align="center">PhD Admissions Portal</h2>
+    <div class="container">
+<h1>Registration Form</h1>{% if user.is_authenticated %}<p align="right">Application no. : <b>{{ request.user.username }}</b> | <a href="/register/logout/">Click here!</a> to logout | <a href="/register/change_password/">Forgot Password?</a></p>{% endif %}
+<div class="container">
+    <div class="jumbotron">
+        <p>
+            <b style="color: red;">Note : </b>Applicants should refer the information brochure and corrigendum before start filling
+
+the online application form. All fields are mandatory. Write NA in fields which are not
+
+applicable to you.
+        </p>
+    </div>
+</div>
+
+    <form action="/register/form/" method="POST" enctype="multipart/form-data" id='forms' class="form-horizontal" role="form">{% csrf_token %}
+        <div class="form-group">
+        <label for="full_name" class="control-label col-sm-2">Full Name :</label>
+            <div class="col-xs-5">
+        <input type="text" name="full_name" class="form-control" value="{{ form_data.full_name }}" required/>
+                </div>
+            </div>
+        <div class="form-group">
+        <label for="mother_name" class="control-label col-sm-2">Mother's Name :</label>
+            <div class="col-xs-5">
+        <input type="text" name="mother_name" class="form-control" value="{{ form_data.mother_name }}" required/>
+                </div>
+            </div>
+        <div class="form-group">
+        <label for="father_name" class="control-label col-sm-2">Father's Name :</label>
+                <div class="col-xs-5">
+        <input type="text" name="father_name" class="form-control" value="{{ form_data.father_name }}" required/>
+                    </div>
+            </div>
+        <div class="form-group">
+        <label for="dob" class="control-label col-sm-2" onload="f()" id="rdob">Date of Birth :</label>
+                    <div class="col-xs-5">
+        <input type="date" name="dob" value="{{ form_data.dob }}"  required/>
+                        </div>
+            </div>
+        <div class="form-group">
+        <label for="gender" class="control-label col-sm-2">Full Name :</label>
+                        <div class="col-xs-5">
+        <select name="gender"  required>
+            {% if form_data.gender == "M" %}
+            <option value="M" selected="selected">Male</option>
             <option value="F">Female</option>
-        </select><br>
-        <label for="nation">Nation :</label>
+            {% else %}
+            <option value="M">Male</option>
+            <option value="F" selected="selected">Female</option>
+            {% endif %}
+        </select>
+                            </div>
+            </div>
+        <div class="form-group">
+        <label for="nation" class="control-label col-sm-2">Nationality :</label>
+                            <div class="col-xs-5">
         <select name="nation" required>
+            {% if form_data.nation == "Indian" %}
+            <option value="Foreign" >Foreign</option>
+            <option value="Indian" selected="selected">Indian</option>
+            {% else %}
+            <option value="Foreign" selected="selected">Foreign</option>
             <option value="Indian">Indian</option>
-            <option value="Foreign">Foreign</option>
-        </select><br>
-        <label for="category">Category :</label>
+            {% endif %}
+        </select>
+                                </div>
+            </div>
+        <div class="form-group">
+        <label for="category" class="control-label col-sm-2">Category :</label>
+                                <div class="col-xs-5">
         <select name="category" required>
+            {% if from_data.category == "GEN" %}
+            <option value="GEN" selected="selected">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            {% endif %}
+            {% if form_data.category == "OBC" %}
             <option value="GEN">General</option>
-            <option value="Foreign">OBC</option>
-            <option value="Foreign">SC</option>
-            <option value="Foreign">ST</option>
-        </select><br>
-        <label for="phys">Are you Physically Disabled? :</label>
-        <input type="radio" name="phys" value="Y" required/>Yes
+            <option value="OBC" selected="selected">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            {% endif %}
+            {% if form_data.category == "SC" %}
+            <option value="GEN">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC" selected="selected">SC</option>
+            <option value="ST">ST</option>
+            {% endif %}
+            {% if form_data.category == "ST" %}
+            <option value="GEN">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST" selected="selected">ST</option>
+            {% else %}
+             <option value="GEN" selected="selected">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST" >ST</option>
+            {% endif %}
+        </select>
+                                    </div>
+            </div>
+        <div class="form-group">
+        <label for="phys" class="control-label col-sm-2">Are you Physically Disabled? :</label>
+                                    <div class="col-xs-5">
+        {% if form_data.phys == "Y" %}
+        <input type="radio" name="phys" value="Y" checked required/>Yes
         <input type="radio" name="phys" value="N" required/>No
-        <label for="mobile">Mobile: </label>
-        <input type="text" name="mobile" required/>
-        <label for="perma_addr">Permanent Address : </label>
-        <textarea name="perma_addr" rows="5" cols="10" id="perma_addr" required></textarea>
-        <input type="checkbox" id="checker"/>
-        <label for="corres_addr">Correspondence Address : </label>
-        <textarea name="corres_addr" rows="5" cols="10" id="corres_addr" required></textarea>
-    <input type="submit" name="save" value="Save"/>
-    <input type="submit" name="submit" value="Submit"/> </form>
-<script type="text/javascript">
-        $(document).ready(function(){
-                        $("input#checker").bind("click",function(o){
-                                        if($("input#checker:checked").length){
-                                                $("#perma_addr").val($("#corres_addr").val());}
-                                                else{
-                                                    $("#corres_addr").val("");
-                                                    }
-                                                    });
-                                                    });
+        {% else %}
+        <input type="radio" name="phys" value="Y" required/>Yes
+        <input type="radio" name="phys" value="N" checked required/>No
+        {% endif %}
+                                        </div>
+            </div>
+        <div class="form-group">
+        <label for="mobile" class="control-label col-sm-2">Mobile: </label>
+                                        <div class="col-xs-5">
+        <input type="text" name="mobile" class="form-control" value="{{ form_data.mobile }}" required/>
+                                            </div>
+            </div>
+        <div class="form-group">
+        <label for="perma_addr" class="control-label col-sm-2">Permanent Address : </label>
+                                            <div class="col-xs-5">
+        <textarea name="perma_addr" rows="5" cols="30" id="perma_addr" required>{{ form_data.perma_addr }}</textarea>
+                                                </div>
+            </div>
 
+        <input type="checkbox" align="center" id="checker" onclick="fcheck()" value="ok"/>Check this if both addresses are same
+        <div class="form-group">
+        <label for="corres_addr" class="control-label col-sm-2">Correspondence Address : </label>
+                                                <div class="col-sm-10">
+        <textarea name="corres_addr" rows="5" cols="30" id="corres_addr" required>{{ form_data.corres_addr }}</textarea>
+                                                    </div>
+            </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-default" name="save" value="Save"/>Save</button>
+    <button name="submit" class="btn btn-default" value="submit" onclick="check()"/>Submit</button>
+    </div>
+    </div>
+    </form>
+    </div>
+<script type="text/javascript">
+    function check(){
+    var r = confirm("You will not be able to change the input data if you submit the form .Are you sure to submit?");
+    if(r == true)
+    {
+    document.getElementById('forms').submit();
+    }
+
+    }
+    function fcheck(){
+    x = document.getElementById("checker").value;
+    if(x=="ok"){
+    document.getElementById("corres_addr").value = document.getElementById("perma_addr").value;
+    }
+    else
+    {
+    if(document.getElementById("corres_addr").value = document.getElementById("perma_addr").value)
+    document.getElementById("corres_addr").value = "";
+    }
+    }
+    function f(){
+    var x = document.getElementById('rdob').value = {{ form_data.dob }};
+    }
 </script>
-<a href="/register/change_password/">Forgot Password?</a>
+
 </body>
 
 </html>

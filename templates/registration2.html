@@ -1,160 +1,423 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Admission Portal ( Banaras Hindu University ), Varanasi -India">
-    <meta name="keywords" content="course change portal,portal,iit bhu, itbhu,bhu, indian institute of technology bhu, iit varanasi,banaras hindu university" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
     <meta name="author" content="">
-    <!--favicon-->
-    <link rel="icon" href="/static/images/iitbhu.ico">
+    <title>PhD Admissions Portal | IIT(BHU) Varanasi</title>
 
-    <title>Change Pass | IIT (BHU), Varanasi</title>
+    <!-- core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/responsive.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/static/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/static/css/starter-template.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/static/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    <script src="/static/js/html5shiv.js"></script>
+    <script src="/static/js/respond.min.js"></script>
     <![endif]-->
-    <!-- <link href="/static/css/custom.css" rel="stylesheet"> -->
+    <script src="/static/js/numeric.js"></script>
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
 
-  </head>
 <body>
-<h1>Registration Form</h1>{% if user.is_authenticated %}<p>LOL</p>{% endif %}
 
+    <header id="header">
 
-    <form action="/register/form2/" method="POST" enctype="multipart/form-data" class="form-inline" role="form">{% csrf_token %}
-        <label for="image">Profile Image :</label>
-        <input type="image" name="image" required/><br>
-        <label for="signature">Signature Image :</label>
-        <input type="image" name="signature" required/><br>
-        <label for="ereceipt">E Receipt no. :</label>
-        <input type="text" name="ereceipt" required/><br>
-        <label for="dop">Date of Payment :</label>
-        <input type="date" name="dop" required/><br>
-        <label for="gate_status">Gate/NET Qualified :</label>
-        <select name="gate_status" required>
-            <option value="1">Yes</option>
+       <div class="container">
+  <div class="row">
+      <div class="col-sm-3"><img src="/static/images/logo.jpg" style="height: 150px;width: 150px;left-margin: 70px" align="right" class="img-responsive"/></div>
+      <div class="col-sm-9"><img src="/static/images/emblem.jpg" style="height: 150px;width: auto;" align="left" class="img-responsive"/></div>
+  </div>
+      </div>
+<div>
+    <h1 align="center">PhD Admissions Portal</h1>
+</div>
+    </header><!--/header-->
+    <h2 align="center">PhD Admissions Portal</h2>
+    <div class="container">
+<h1>Registration Form</h1>{% if user.is_authenticated %}<div class="container>"> <p align="right">Application ID :<b> {{ request.user.username }}</b><br>Click here to <a href="/register/logout/">Logout</a> </div>{% endif %}
+
+    <div class="container">
+        <fieldset>
+            <legend>Personal Information :</legend>
+            <div class="row">
+            <label for="full_name" class="col-sm-2">Full Name : </label>
+            <div class="col-xs-4">{{ form_data.full_name }}</div>
+                </div>
+            <div class="row">
+            <label for="mother_name" class="col-sm-2">Mother Name : </label>
+            <div class="col-xs-4">{{ form_data.mother_name }}</div>
+                </div>
+            <div class="row">
+            <label for="father_name" class="col-sm-2">Father Name : </label>
+            <div class="col-xs-4">{{ form_data.father_name }}</div>
+                </div>
+            <div class="row">
+            <label for="dob" class="col-sm-2">Date of Birth : </label>
+            <div class="col-xs-4">{{ form_data.dob }}</div>
+                <label for="gender" class="col-sm-2">Gender : </label>
+                <div class="col-xs-2">{{ form_data.gender }} </div>
+                </div>
+            <div class="row">
+            <label for="nation" class="col-sm-2">Nationality : </label>
+            <div class="col-xs-4">{{ form_data.nation }}</div>
+                <label for="category" class="col-sm-2">Category : </label>
+                <div class="col-xs-2">{{ form_data.category }} </div>
+                </div>
+            <div class="row">
+            <label for="phys" class="col-sm-2">Physical disability status : </label>
+            <div class="col-xs-4">{{ form_data.phys }}</div>
+                <label for="mobile" class="col-sm-2">Mobile No. : </label>
+                <div class="col-xs-2">{{ form_data.mobile }} </div>
+                </div>
+            <div class="row">
+            <label for="perma_addr" class="col-sm-2">Permanent Address : </label>
+            <div class="col-xs-4">{{ form_data.perma_addr }}</div>
+                <label for="corres_addr" class="col-sm-2">Address for Correspondence : </label>
+                <div class="col-xs-2">{{ form_data.corres_addr }} </div>
+                </div>
+        </fieldset>
+    </div>
+        <div class="container" style="background-color:#AEC8D2;">
+        <p>
+            <b style="color: red;">Note : </b>Applicants should refer the information brochure and corrigendum before start filling
+
+the online application form. All fields are mandatory. Write NA in fields which are not
+
+applicable to you.
+        </p>
+
+</div>
+    <form action="/register/part_form/" method="POST" enctype="multipart/form-data" class="form-horizontal" role="form">{% csrf_token %}
+        <fieldset><legend>Upload photograph and signature here!</legend><br>
+        <div class="form-group">
+        <label for="image" class="control-label col-sm-2">Upload photograph :</label>
+            <div class="col-xs-5">
+        {{ image_form.image }}
+                </div>
+            </div>
+
+            <div class="form-group">
+        <label for="signature" class="control-label col-sm-2">Signature Image :</label>
+                <div class="col-xs-5">
+                    {{ image_form.signature }}
+                </div>
+                </div>
+            </fieldset>
+
+        <fieldset>
+            <legend>Application processing fee</legend>
+            <div class="form-group">
+        <label for="amount" class="control-label col-sm-2">Amount to be paid : </label>
+        {% if user_data.category == "GEN" or "OBC" %}
+        <p>500</p>
+        {% else %}
+        <p>250</p>
+        {% endif %}</div>
+        <div class="form-group">
+        <label for="ereceipt" class="control-label col-sm-2">E Receipt no. :</label>
+            <div class="col-xs-5">
+        <input type="text" name="ereceipt" class="form-control" value="{{ user_data.ereceipt }}" required/>
+            </div></div>
+        <div class="form-group">
+        <label for="dop" class="control-label col-sm-2">Date of Payment :</label>
+            <div class="col-xs-2">
+        <input type="date" name="dop"  class="form-control" value="{{ user_data.dop }}" required/>
+            </div></div>
+        </fieldset>
+        <fieldset><legend>Qualifying Entrance Exam GATE/UGC-CSIR-NET details</legend>
+             <div class="form-group">
+        <label for="gate_status" class="control-label col-sm-2">Gate/NET Qualified :</label>
+            <div class="col-xs-5">
+        <select name="gate_status" id="gatesta"   required>
+            {% if user_data.gate_status == 1 %}
+            <option value="1" selected>Yes</option>
             <option value="2">No</option>
-        </select><br>
-        <label for="gate_exam">Nation :</label>
-        <select form="gate_exam" name="gate_exam">
+            {% else %}
+            <option value="1" selected>Yes</option>
+            <option value="2">No</option>
+            {% endif %}
+        </select>
+                </div>
+            </div>
+        <div id="check1" >
+        <div class="form-group">
+        <label for="gate_exam" class="control-label col-sm-2">Exam Name :</label>
+            <div class="col-xs-5">
+        <select name="gate_exam" class="form-control" >
+            {% if user_data.gate_exam == "GATE" %}
             <option value="GATE">GATE</option>
             <option value="UGC-CSIR-NET">UGC-CSIR-NET</option>
+            {% else %}
+            <option value="UGC-CSIR-NET">UGC-CSIR-NET</option>
+            <option value="GATE">GATE</option>
+
+            {% endif %}
         </select>
-        <label for="gate_disc">Gate Discipline : </label>
-        <input type="text" name="gate_disc"/>
-        <label for="gate_regis">Gate Registration :</label>
-        <input type="text" name="gate_regis"/>
-        <label for="gate_rank">Gate Rank : </label>
-        <input type="text" name="gate_rank"/>
-        <label for="score_card">Gate Scorecard :</label>
-        <input type="image" name="score_card"/><br>
-        <label for="quali_degree">Qualifying Degree : </label>
-        <input type="text" name="quali_degree"/>
-        <label for="univ_name">University Name : </label>
-        <input type="text" name="univ_name"/>
-        <label for="year_passing">Passing Year : </label>
-        <input type="text" name="year_passing"/>
-        <label for="status_deg">Degree Status : </label>
-        <select for="status_deg" name="status_deg">
-            <option name="status_deg" value="RA">Result Awaited</option>
+                </div>
+            </div>
+        <div class="form-group">
+        <label for="gate_disc" class="control-label col-sm-2">Gate Discipline : </label>
+            <div class="col-xs-5">
+        <input type="text" name="gate_disc" value="{{ user_data.gate_disc }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="gate_regis" class="control-label col-sm-2">Gate Registration :</label>
+            <div class="col-xs-5">
+        <input type="text" name="gate_regis" value="{{ user_data.gate_regis }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="gate_rank" class="control-label col-sm-2">Gate Rank : </label>
+            <div class="col-xs-5">
+        <input type="text" name="gate_rank" value="{{ user_data.gate_rank }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="score_card" class="control-label col-sm-2">Gate Scorecard :</label>
+            <div class="col-xs-5">
+        {{ image_form.score_card }}
+
+            </div></div>
+        </div></fieldset>
+        <fieldset>
+            <legend>Qualifying Degree details : </legend>
+            <div class="form-group">
+        <label for="quali_degree" class="control-label col-sm-2">Qualifying Degree : </label>
+            <div class="col-xs-5">
+        <input type="text" name="quali_degree" value="{{ user_data.quali_degree }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="univ_name" class="control-label col-sm-2">University Name : </label>
+            <div class="col-xs-5">
+        <input type="text" name="univ_name" value="{{ user_data.univ_name }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="year_passing" class="control-label col-sm-2">Passing Year : </label>
+            <div class="col-xs-5">
+        <input type="text" name="year_passing" value="{{ user_data.year_passing }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="status_deg" class="control-label col-sm-2">Degree Status : </label>
+            <div class="col-xs-5">
+        <select for="status_deg" name="status_deg" class="form-control" >
+            {% if user_data.status_deg == "RA" %}
+            <option name="status_deg" value="RA" selected>Result Awaited</option>
             <option name="status_deg" value="RD">Redult Declared</option>
-        </select>
-        <label for="aggre_per">Aggregate Percentage : </label>
-        <input type="text" name="aggre_per"/>
-        <label for="stu_status">Student Status : </label>
-        <select name="stu_status">
+            {% else %}
+
+            <option name="status_deg" value="RA" selected>Result Awaited</option>
+            <option name="status_deg" value="RD">Redult Declared</option>
+            {% endif %}
+        </select></div>
+            </div>
+
+        <div class="form-group">
+        <label for="aggre_per" class="control-label col-sm-2">Aggregate Percentage : </label>
+            <div class="col-xs-5">
+        <input type="text" name="aggre_per" value="{{ user_data.aggre_per }}" class="form-control" />
+            </div></div>
+
+        </fieldset>
+        <fieldset>
+            <legend>Work experience(If applying under sponsored category):</legend>
+            <div class="form-group">
+        <label for="work_exp" class="control-label col-sm-2">Work Experience : </label>
+            <div class="col-xs-5">
+        <input name="work_exp" type="radio" value="Y" />Yes
+        <input name="work_exp" type="radio" value="N" />No
+            </div></div>
+        <div class="form-group">
+        <label for="period_from" class="control-label col-sm-2">Period From : </label>
+            <div class="col-xs-2">
+         <input type="month" name="period_from"  value="{{ user_data.period_from }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+         <label for="period_to" class="control-label col-sm-2">Period To : </label>
+            <div class="col-xs-2">
+        <input type="month" name="period_to"  value="{{ user_data.period_to }}" class="form-control" />
+            </div></div>
+        <div class="form-group">
+        <label for="work_org" class="control-label col-sm-2">Work Organization : </label>
+            <div class="col-xs-5">
+        <input type="text" name="work_org" class="form-control"  value="{{ user_data.work_org }}"/>
+            </div></div>
+        <div class="form-group">
+        <label for="position" class="control-label col-sm-2">Position : </label>
+            <div class="col-xs-5">
+        <input type="text" name="position" class="form-control"  value="{{ user_data.position }}"/>
+            </div></div>
+        </fieldset>
+        <fieldset>
+            <legend>Publications : </legend>
+            <div class="form-group">
+        <label for="pulica_status" class="control-label col-sm-2">Publication Status : </label>
+            <div class="col-xs-5">
+        <input type="radio" name="pulica_status" value="Y" />Yes
+        <input type="radio" name="pulica_status"  value="N"/>No
+            </div></div>
+        <div class="form-group">
+        <label for="publica" class="control-label col-sm-2">Publications : </label>
+            <div class="col-xs-5">
+        <input type="text" name="publica" class="form-control"  value="{{ user_data.publica }}" />
+            </div></div>
+        </fieldset>
+        <fieldset>
+            <legend>Referee's details : </legend>
+            <div class="form-group">
+        <label for="refree1_name" class="control-label col-sm-2">Referee 1 Name : </label>
+            <div class="col-xs-5">
+            <input type="text" name="refree1_name" class="form-control"  value="{{ user_data.refree1_name }}"/>
+            </div></div>
+        <div class="form-group">
+        <label for="refree1_email" class="control-label col-sm-2">Referee 1 Email :</label>
+            <div class="col-xs-5">
+        <input type="email" name="refree1_email" class="form-control"  value="{{ user_data.refree1_email}}"/>
+            </div></div>
+        <div class="form-group">
+        <label for="refree2_name" class="control-label col-sm-2">Referee 2 Name : </label>
+            <div class="col-xs-5">
+        <input type="text" name="refree2_name" class="form-control"  value="{{ user_data.refree2_name }}"/>
+            </div></div>
+        <div class="form-group">
+        <label for="refree2_email" class="control-label col-sm-2">Referee 2 Email :</label>
+            <div class="col-xs-5">
+        <input type="email" name="refree2_email" class="form-control"  value="{{ user_data.refree2_email }}"/>
+            </div></div>
+        </fieldset>
+        <fieldset>
+            <legend>Programme selection : </legend>
+            <div class="form-group">
+        <label for="stu_status" class="control-label col-sm-2">Student Status : </label>
+            <div class="col-xs-5">
+        <select name="stu_status" class="form-control" >
             <option value="FTR">Full Time Regular</option>
-            <option></option>
-            <option></option>
+            <option value="FTS">Full Time Sponsored</option>
+            <option value="PT">Part Time</option>
+            <option value="ET">External Registration</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="fin_status" class="control-label col-sm-2">Financial Status : </label>
+            <div class="col-xs-5">
+        <select name="fin_status" class="form-control" >
+            <option value="SR">Scholarship Required</option>
+            <option value="FS">Full-Time Sponsored</option>
         </select>
-        <label for="fin_status">Financial Status : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
+            </div></div>
+        <div class="form-group">
+        <label for="disc_choice1" class="control-label col-sm-2">Discipline Choice 1 : </label>
+            <div class="col-xs-5">
+        <select name="disc_choice1" class="form-control" >
+            <option value="English">English</option>
+            <option value="CL">Computational Linguistics</option>
+            <option value="History">History</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="disc_choice2" class="control-label col-sm-2">Discipline Choice 2 : </label>
+            <div class="col-xs-5">
+        <select name="disc_choice2" class="form-control" >
+            <option value="English">English</option>
+            <option value="CL">Computational Linguistics</option>
+            <option value="History">History</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="NA">NA</option>
         </select>
-        <label for="disc_choice1">Discipline Choice 1 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="disc_choice2">Discipline Choice 2 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="disc_choice3">Discipline Choice 3 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="disc_choice4">Discipline Choice 4 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="disc_choice5">Discipline Choice 5 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="spec_choice1">Specialization Choice 1 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="spec_choice2">Specialization Choice 2 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="spec_choice3">Specialization Choice 3 : </label>
-        <select name="fin_status">
-            <option></option>
-            <option></option>
-        </select>
-        <label for="work_exp">Work Experience : </label>
-        <input name="work_exp" value="Y"/>Yes
-        <input name="work_exp" value="N"/>No
-        <label for="period_from">Period From : </label>
-         <input type="month" name="period_form_mon"/>
-         <label for="period_to">Period To : </label>
-        <label for="work_org">Work Organization : </label>
-        <label for="position">Position : </label>
-        <label for="pulica_status">Publication Status : </label>
-        <label for="publica">Publications : </label>
-        <label for="refree1_name">Referee 1 Name : </label>
-        <label for="refree1_email">Referee 1 Email :</label>
-        <label for="refree2_name">Referee 2 Name : </label>
-        <label for="refree2_email">Referee 2 Email :</label>
-    <input type="submit" name="submit" value="Submit"/> </form>
+            </div></div>
+        <div class="form-group">
+        <label for="disc_choice3" class="control-label col-sm-2">Discipline Choice 3 : </label>
+            <div class="col-xs-5">
+        <select name="disc_choice3" class="form-control" >
+            <option value="English">English</option>
+            <option value="CL">Computational Linguistics</option>
+            <option value="History">History</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="disc_choice4" class="control-label col-sm-2">Discipline Choice 4 : </label>
+            <div class="col-xs-5">
+        <select name="disc_choice4" class="form-control" >
+            <option value="English">English</option>
+            <option value="CL">Computational Linguistics</option>
+            <option value="History">History</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="disc_choice5" class="control-label col-sm-2">Discipline Choice 5 : </label>
+            <div class="col-xs-5">
+        <select name="disc_choice5" class="form-control" >
+            <option value="English">English</option>
+            <option value="CL">Computational Linguistics</option>
+            <option value="History">History</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Philosophy">Philosophy</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="spec_choice1" class="control-label col-sm-2">Specialization Choice 1 : </label>
+            <div class="col-xs-5">
+        <select name="spec_choice1" class="form-control" >
+            <option value="CSD">Cultural Studies</option>
+            <option value="DS">Development Studies</option>
+            <option value="HP">History & Philosophy of Science & Technology</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="spec_choice2" class="control-label col-sm-2">Specialization Choice 2 : </label>
+            <div class="col-xs-5">
+        <select name="spec_choice2" class="form-control" >
+            <option value="CSD">Cultural Studies</option>
+            <option value="DS">Development Studies</option>
+            <option value="HP">History & Philosophy of Science & Technology</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        <div class="form-group">
+        <label for="spec_choice3" class="control-label col-sm-2">Specialization Choice 3 : </label>
+            <div class="col-xs-5">
+        <select name="spec_choice3" class="form-control" >
+            <option value="CSD">Cultural Studies</option>
+            <option value="DS">Development Studies</option>
+            <option value="HP">History & Philosophy of Science & Technology</option>
+            <option value="NA">NA</option>
+        </select></div>
+            </div>
+        </fieldset>
+
+<div class="form-group">
+    <input type="checkbox" id="checkes"/><b>Self Declaration</b>
+    <p>I   declare  t hat   the  information  provided  by me  on  this  application  form  is  correct   to  the  best   of  my  knowledge  and  belief .   I  understand  that   any  wilful misinterpretation  of   facts  will  result  in my  disqualification  and  dismissal  from  the  Institute  if  admitted.</p>
+</div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" name="save" value="save"/>
+    <input type="submit" name="submit" value="Submit"/></div></div> </form>
+        </div>
+
 <script type="text/javascript">
-        $(document).ready(function(){
-                        $("input#checker").bind("click",function(o){
-                                        if($("input#checker:checked").length){
-                                                $("#perma_addr").val($("#corres_addr").val());}
-                                                else{
-                                                    $("#corres_addr").val("");
-                                                    }
-                                                    });
-                                                    });
 
 </script>
-<a href="/register/change_password/">Forgot Password?</a>
 </body>
 
 </html>
