@@ -9,3 +9,4 @@ function fcheck(){
     document.getElementById("corres_addr").value = "";
     }
     }
+
