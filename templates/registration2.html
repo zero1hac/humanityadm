@@ -143,7 +143,7 @@ applicable to you.
              <div class="form-group">
         <label for="gate_status" class="control-label col-sm-2">Gate/NET Qualified :</label>
             <div class="col-xs-5">
-        <select name="gate_status" id="gatesta"   required>
+        <select name="gate_status" id="gatesta" onchange="gateChange()"  required>
             {% if user_data.gate_status == 1 %}
             <option value="1" selected>Yes</option>
             <option value="2">No</option>
@@ -236,9 +236,11 @@ applicable to you.
             <div class="form-group">
         <label for="work_exp" class="control-label col-sm-2">Work Experience : </label>
             <div class="col-xs-5">
-        <input name="work_exp" type="radio" value="Y" />Yes
-        <input name="work_exp" type="radio" value="N" />No
+        <input name="work_exp" type="radio" id="wey" onchange="workshow()" value="Y" />Yes
+        <input name="work_exp" type="radio" id="wen" onchange="workshow()"  value="N" />No
             </div></div>
+
+        <div id="wdata">    
         <div class="form-group">
         <label for="period_from" class="control-label col-sm-2">Period From : </label>
             <div class="col-xs-2">
@@ -259,16 +261,17 @@ applicable to you.
             <div class="col-xs-5">
         <input type="text" name="position" class="form-control"  value="{{ user_data.position }}"/>
             </div></div>
+        </div>
         </fieldset>
         <fieldset>
             <legend>Publications : </legend>
             <div class="form-group">
         <label for="pulica_status" class="control-label col-sm-2">Publication Status : </label>
             <div class="col-xs-5">
-        <input type="radio" name="pulica_status" value="Y" />Yes
-        <input type="radio" name="pulica_status"  value="N"/>No
+        <input type="radio" name="pulica_status" id="pry" onchange="pubshow()" value="Y" />Yes
+        <input type="radio" name="pulica_status" id="prn" onchange="pubshow()"  value="N"/>No
             </div></div>
-        <div class="form-group">
+        <div class="form-group" id="pubdata">
         <label for="publica" class="control-label col-sm-2">Publications : </label>
             <div class="col-xs-5">
         <input type="text" name="publica" class="form-control"  value="{{ user_data.publica }}" />
@@ -423,6 +426,40 @@ applicable to you.
         </div>
 
 <script type="text/javascript">
+
+    function workshow(){
+
+        var r1 = document.getElementById("wey");
+        var wdata = document.getElementById("wdata");
+        // console.log(r1.checked);
+        if(r1.checked)
+            wdata.style.display = "block";
+        else
+            wdata.style.display = "none";
+    }
+
+    function pubshow(){
+
+        var r1 = document.getElementById("pry");
+        var wdata = document.getElementById("pubdata");
+        // console.log(r1.checked);
+        if(r1.checked)
+            wdata.style.display = "block";
+        else
+            wdata.style.display = "none";
+    }
+
+    function gateChange(){
+        var drop = document.getElementById("gatesta");
+        var check1 = document.getElementById("check1");
+        var vl = drop.options[drop.selectedIndex].value;
+        if(vl=="1")
+            check1.style.display = "block";
+        else
+            check1.style.display = "none";
+    }
+
+    
 
 </script>
 </body>
