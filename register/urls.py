@@ -2,7 +2,7 @@ __author__ = 'zeroonehacker'
 
 from django.conf.urls import url
 from register import views
-from wkhtmltopdf.views import PDFTemplateView
+#from wkhtmltopdf.views import PDFTemplateView
 urlpatterns  = [
     url(r'^$', views.register, name='register'),
     url(r'^loggedin/',views.loggedin, name='loggedin'),
