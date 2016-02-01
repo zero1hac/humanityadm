@@ -1,8 +1,8 @@
 from reportlab.pdfgen import canvas
 from cStringIO import StringIO
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from django.shortcuts import render,get_object_or_404
-from django.core.urlresolvers import reverse
+# from django.shortcuts import render,get_object_or_404
+# from django.core.urlresolvers import reverse
 from django.template import loader, RequestContext
 #from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
@@ -11,20 +11,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login as lgin
 from django.shortcuts import render,redirect
 from django.contrib.auth import logout as lgout
-from django.template.loader import get_template
+# from django.template.loader import get_template
 #from email.mime import MIMEText
-from django.core.exceptions import ObjectDoesNotExist
-from django.db import connection
-from django.core.mail import send_mail
+# from django.core.exceptions import ObjectDoesNotExist
+# from django.db import connection
+# from django.core.mail import send_mail
 from .forms import UserForm, UserProfileForm, ImageForm
 from .models import UserDetails,User
 import smtplib
 import pdf
 import os
 import string
-from wkhtmltopdf.views import PDFTemplateResponse
+#from wkhtmltopdf.views import PDFTemplateResponse
 import random
-from xhtml2pdf import pisa
+#from xhtml2pdf import pisa
 globals()
 # Create your views here.
 def handle_uploaded_file(f,us,ty=1):
